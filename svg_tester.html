@@ -1,0 +1,51 @@
+<!DOCYTPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>SVG TEST</title>
+
+</head>
+<body>
+	<div id="canvas">
+	</div>
+</body>
+<script>
+	var SVG_NS = "http://www.w3.org/2000/svg";
+	
+	function createSVG(){
+
+			var svg = document.createElementNS( SVG_NS, 'svg');
+			svg.setAttribute('width', '100%');
+			svg.setAttribute('height', '100%');
+			canvas.appendChild(svg);
+			
+			return svg;
+	}
+	
+	
+	function createShape( shape ){
+		var shape = document.createElementNS( SVG_NS, shape );
+		
+		shape.setAttribute('cx', 30);
+		shape.setAttribute('cy', 40);
+		shape.setAttribute('r', 15);
+		svg.appendChild(shape);
+	}
+	
+	function createPath (description){
+		var path = document.createElementNS( SVG_NS, 'path' );
+		
+		path.setAttribute ('d',description);
+		path.setAttribute ('stroke','black');
+		path.setAttribute ('stroke-width', 5);
+		path.setAttribute ('fill', 'none');
+		svg.appendChild(path);
+	}
+	
+	var svg = createSVG();
+	var description = "M 150 200 Q 250 50 150 400";
+	createShape("circle");
+	createPath( description);
+
+</script>
+</html>
